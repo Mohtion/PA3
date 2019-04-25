@@ -60,7 +60,7 @@ void Car::setDoors(int numDoors){
 
 //Returns: nothing
 //Takes in: ID string
-//Purpose: sets the car id
+//Purpose: sets car id
 void Car::setID(string ID){
   id = ID;
 }
