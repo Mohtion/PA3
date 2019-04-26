@@ -27,7 +27,7 @@ class Car: public vehicle{
     void setDoors(int numDoors);
     string getPaymentType( );
     void setPaymentType(string pt);
-    void printInfo( );
+    void printInfo(ofstream &out);
 };
 
 #endif

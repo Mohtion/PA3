@@ -25,8 +25,9 @@ Car::Car(): vehicle(), doors(0) {}
 //Takes in: the id, year, make, model, color, and number of door of the car
 //Purpose: Default constructor – use initialization list
 Car::Car(string id, int year, string make, string model,
-  string color, int numberOfDoors, string paymentType): vehicle(id, year, make, model, color),
-  doors(numberOfDoors), paymentType(paymentType){}
+  string color, int numberOfDoors, string paymentType):
+  vehicle(id, year, make, model, color), doors(numberOfDoors),
+  paymentType(paymentType){}
 
 //Returns: nothing
 //Takes in: the input file pointer
@@ -66,7 +67,7 @@ void Car::setPaymentType(string pt){
 //Returns: nothing
 //Takes in: nothing
 //Purpose: prints the car information
-void Car::printInfo(){
-  vehicle::printInfo();
-  cout << "doors:\t" << doors << endl << endl;
+void Car::printInfo(ofstream &out){
+  vehicle::printInfo(out);
+  out << "doors:\t" << doors << endl << endl;
 }

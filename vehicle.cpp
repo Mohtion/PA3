@@ -12,26 +12,36 @@
 
 using namespace std;
 
-//default constructor
+//takes in: nothing
+//returns: nothing
+//purpose: default constructor
 vehicle::vehicle(): id("no id"), year(0), make("no make"), model("no model"),
   color("no color") {}
 
-//parameterized constructor
+//takes in: vehicle id, year, make, model, and color
+//returns: nothing
+//purpose: parameterized constructor
 vehicle::vehicle(string id, int year, string make, string model, string color):
   id(id), year(year), make(make), model(model),
   color(color){}
 
-//another constructor using input file
+//takes in: input text file pointer
+//returns: nothing
+//purpose: another constructor using input file
 vehicle::vehicle (ifstream &infile){
   infile >> id >> year >> make >> model >> color;
 }
 
-//getter for vehicle id
+//takes in: nothing
+//returns: vehicle id
+//purpose: getter for vehicle id
 string vehicle::getID(){
   return id;
 }
 
-//setter for vehicle id
+//takes in: vehicle id
+//returns: nothing
+//purpose: setter for vehicle id
 void vehicle::setID(string ID){
   id = ID;
 }
