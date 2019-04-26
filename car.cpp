@@ -33,7 +33,7 @@ Car::Car(string id, int year, string make, string model,
 //Takes in: the input file pointer
 //Purpose: constructor reads in the information from the file specific to car
 Car::Car(ifstream &infile): vehicle(infile) {
-  infile >> doors;
+  infile >> doors >> paymentType;
 }
 
 //Returns: Number of doors

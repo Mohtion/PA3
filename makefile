@@ -5,10 +5,10 @@
 #Proffesor Hochrine
 
 compile:
-	g++ -Wall -g -std=c++11 driver.cpp dealership.cpp car.cpp truck.cpp -o driver
+	g++ -Wall -g -std=c++11 driver.cpp tollbooth.cpp vehicle.cpp car.cpp truck.cpp -o tollbooth
 
 run:
-	./driver dealer.txt
+	./tollbooth vehicle.txt output.txt
 
 clean:
-	rm *.out driver
+	rm *.out tollbooth
