@@ -50,7 +50,7 @@ void vehicle::setID(string ID){
 //returns: nothing
 //purpose: outputs general vehicle information to text file
 void vehicle::printInfo(ofstream &out){
-  out << "id: \t" << id << endl;
+  out << "id: \t\t" << id << endl;
   out << "year: \t" << year << endl;
   out << "make: \t" << make << endl;
   out << "model: \t" << model << endl;

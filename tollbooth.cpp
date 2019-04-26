@@ -10,6 +10,7 @@
 #include <string>
 #include <ctime>
 #include <cmath>
+#include <iostream>
 #include "tollbooth.h"
 #include "vehicle.h"
 #include "truck.h"
@@ -52,11 +53,12 @@ void tollbooth::arrive(Car *c, ofstream &out){
   totalToll += 3 + 1 * c->getDoors();
   //add to cash or card total
   if (c->getPaymentType() == "card" || c->getPaymentType() == "Card"){
-    cardCount += 3 + 1 * c->getDoors();
+    cardCount++;
   }
   if (c->getPaymentType() == "cash" || c->getPaymentType() == "Cash"){
-    cardCount += 3 + 1 * c->getDoors();
+    cashCount++;
   }
+  inventory.push_back(c);
 }
 
 //takes in: truck pointer, output text file pointer
@@ -70,16 +72,17 @@ void tollbooth::arrive(Truck *t, ofstream &out){
   time(&timestamp);
   //output truck amount and timestamp
   out << "Truck " << ++truckCount << "\tAmt Due: " << "$" <<
-    5 * t->getAxles()+ 10 * t->getWeight() << ", " << "timeArrived: " <<
-    ctime(&timestamp) << endl;
+    5 * t->getAxles()+ 10 * ceil(t->getWeight() / 1000.0) << ", "
+    << "timeArrived: " << ctime(&timestamp) << endl;
   totalToll += 5 * t->getAxles()+ 10 * ceil(t->getWeight() / 1000.0);
   //add to cash or card total
   if (t->getPaymentType() == "card" || t->getPaymentType() == "Card"){
-    cardCount += 5 * t->getAxles()+ 10 * ceil(t->getWeight() / 1000.0);
+    cardCount++;
   }
   if (t->getPaymentType() == "cash" || t->getPaymentType() == "Cash"){
-    cardCount += 5 * t->getAxles()+ 10 * ceil(t->getWeight() / 1000.0);
+    cashCount++;
   }
+  inventory.push_back(t);
 }
 
 //takes in:
@@ -90,5 +93,25 @@ void tollbooth::arrive(Truck *t, ofstream &out){
 // will call the car’s printInfo() function; or if it is a truck, it will call
 // the truck’s printInfo() function.
 void tollbooth::printInfo(ofstream &out){
-
+  //output end of day totals
+  out << endl << "***************************" << endl
+    << "End of Day totalTolls:" << endl
+    << "Number of cars:\t" << carCount << endl
+    << "Number of trucks:\t" << truckCount << endl
+    << "Total toll collected: $" << totalToll << endl
+    << "Number paid with cash: " << cashCount << endl
+    << "Number paid with card: " << cardCount << endl;
+  //output all vehicle info
+  out << endl << endl << "***************************" << endl;
+  iter = inventory.begin();
+  for (iter = inventory.begin(); iter != inventory.end(); ++iter){
+    //print info for vehicle depending on whether it is a car or a truck
+    if(*iter == static_cast<Car *>(*iter)){
+      (*iter)->printInfo(out);
+    }
+    else if(*iter == static_cast<Truck *>(*iter)){
+      (*iter)->printInfo(out);
+    }
+    out << endl;
+  }
 }

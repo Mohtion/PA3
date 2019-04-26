@@ -10,6 +10,7 @@
 #define CAR_H
 
 #include <string>
+#include <fstream>
 #include "vehicle.h"
 
 using namespace std;

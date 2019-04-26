@@ -1,0 +1,12 @@
+truck t11345 2000 International 9500 Gray 4 12500 card
+truck t12643 2006 Ford F150 White 3 4500 card
+car c111422 2014 Toyota Corolla White 2 cash
+car c22222 2007 Buick LaSabre Red 4 cash
+car c33355 2014 Ford Mustang Black 4 card
+car c33784 2016 Buick LaCrosse Pearl 4 cash
+truck t33444 2015 Chevrolet Silverado Blue 6 21000 cash
+truck t44577 2000 International 9500 Gray 5 60000 card
+car c44223 2016 Nissan Maxima Pearl 2 card
+truck t55221 2014 Toyota Tundra Platinum 6 70000 card
+car c52323 2016 Honda Accord Silver 4 cash
+truck t66778 2015 Nissan Titan brown 2 4000 card
